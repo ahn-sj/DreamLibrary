@@ -1,5 +1,7 @@
 package com.bookStore.jaesa.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,14 +18,28 @@ public class UserDaoImpl implements UserDao {
 	
 
 	@Override
-	public User selectOneUser(Integer uno) {
-		return session.selectOne(namespace + "select", uno); 
+	public User selectOneUser(Integer uno) throws Exception{
+		return session.selectOne(namespace + "selectOneUser", uno); 
 	}
 
+	@Override
+	public List<User> selectAllUser() throws Exception {
+		return session.selectList(namespace + "selectAllUser");
+	}
 
 	@Override
-	public Integer selectCnt() {
-		return session.selectOne(namespace + "selectCnt");
+	public Integer selectAllUsersCnt() throws Exception{
+		return session.selectOne(namespace + "selectAllUsersCnt");
+	}
+
+	@Override
+	public Integer insertUser(User user) throws Exception {
+		return session.insert(namespace + "insertUser", user);
+	}
+
+	@Override
+	public Integer deleteUser(Integer uno) throws Exception {
+		return session.delete(namespace + "deleteUser", uno);
 	}
 	
 }

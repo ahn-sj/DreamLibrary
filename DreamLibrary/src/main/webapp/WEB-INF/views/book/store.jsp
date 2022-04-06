@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 
     <%@include file="../includes/header.jsp" %> 
@@ -13,23 +13,25 @@
                    <table id="datatablesSimple">
                        <thead>
                            <tr>
-                               <th>Name</th>
-                               <th>Position</th>
-                               <th>Office</th>
-                               <th>Age</th>
-                               <th>Start date</th>
-                               <th>Salary</th>
+                               <th>Bno</th>
+                               <th>Title</th>
+                               <th>Content</th>
+                               <th>Writer</th>
+                               <th>Reg_date</th>
+                               <th>Update_date</th>
                            </tr>
                        </thead>
                        <tbody>
-                           <tr>
-                               <td>Tiger Nixon</td>
-                               <td>System Architect</td>
-                               <td>Edinburgh</td>
-                               <td>61</td>
-                               <td>2011/04/25</td>
-                               <td>$320,800</td>
-                           </tr>
+                           <c:forEach var="bookDto" items="${book}">
+                               <tr>
+                                   <td>${bookDto.bno}</td>
+                                   <td>${bookDto.btitle}</td>
+                                   <td>${bookDto.bcontent}</td>
+                                   <td>${bookDto.bwriter}</td>
+                                   <td>${bookDto.breg_date}</td>
+                                   <td>${bookDto.bupdate_date}</td>
+                               </tr>
+                           </c:forEach>
                        </tbody>
                    </table>
                </div>
