@@ -174,8 +174,13 @@
 		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
 		    <version>1.16</version>
 		</dependency>
-		
-		
+
+		<dependency>
+			<groupId>net.sf.sociaal</groupId>
+			<artifactId>xmlpull-xpp3</artifactId>
+			<version>3.0.0.20130526</version>
+		</dependency>
+
 	</dependencies>
     <build>
         <plugins>
